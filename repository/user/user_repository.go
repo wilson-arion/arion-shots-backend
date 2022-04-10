@@ -11,7 +11,7 @@ import (
 const (
 	queryFindByEmailAndPassword = `
         SELECT
-	        BIN_TO_UUID(user_id) AS user_id,
+	        user_id,
 	        first_name,
 	        last_name,
 	        email,
@@ -37,7 +37,7 @@ const (
         INSERT INTO users
             (user_id, first_name, last_name, email, pass, user_role, date_created, date_updated)
         VALUES
-            (UUID_TO_BIN(UUID()), ?, ?, ?, MD5(?), ?, now(), now());
+            (0, ?, ?, ?, MD5(?), ?, now(), now());
     `
 )
 

@@ -10,7 +10,7 @@ import (
 const (
 	queryGetChallengesPerUser = `
         SELECT
-	        BIN_TO_UUID(challenge_id) as challenge_id ,
+	        challenge_id,
 	        title,
             description,
             banner,
@@ -26,12 +26,12 @@ const (
                 FROM
                     user_challenges_joined ucj
                 WHERE
-                    ucj.user_id = UUID_TO_BIN(?)
+                    ucj.user_id = ?
                 AND
                     ucj.challenge_id = c.challenge_id
                 HAVING cnt > 0
             ) IS NOT NULL) as subscribed,
-            BIN_TO_UUID(creator_id) as user_id,
+            creator_id as user_id,
             u.first_name,
             u.last_name,
             u.email,
@@ -49,7 +49,7 @@ const (
         INSERT INTO user_challenges_joined
 	        (user_id, challenge_id)
         VALUES
-	        (UUID_TO_BIN(?), UUID_TO_BIN(?))
+	        (?, ?)
 
     `
 )

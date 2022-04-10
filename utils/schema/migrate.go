@@ -12,7 +12,7 @@ var (
 			Description: "Add users",
 			Script: `
 					CREATE TABLE IF NOT EXISTS users(
-						user_id         BINARY(16),
+						user_id         MEDIUMINT NOT NULL AUTO_INCREMENT,
 						first_name      VARCHAR(45) NULL,
 						last_name       VARCHAR(45) NULL,
 						email           VARCHAR(45) NOT NULL,
@@ -30,11 +30,11 @@ var (
 			Description: "Add challenges",
 			Script: `
                     CREATE TABLE IF NOT EXISTS challenges (
-                        challenge_id        BINARY(16) NOT NULL,
+                        challenge_id        MEDIUMINT NOT NULL AUTO_INCREMENT,
                         title               VARCHAR(45) NOT NULL,
                         description         TEXT NOT NULL,
                         banner              VARCHAR(2083) NOT NULL,
-                        creator_id          BINARY(16) NOT NULL,
+                        creator_id          MEDIUMINT NOT NULL,
                         category            VARCHAR(45) NOT NULL,
                         end_date            DATETIME NOT NULL,
                         status              VARCHAR(1) NOT NULL,
@@ -54,10 +54,10 @@ var (
 			Description: "Add content",
 			Script: `
                     CREATE TABLE IF NOT EXISTS contents (
-                        content_id          BINARY(16) NOT NULL,
+                        content_id          MEDIUMINT NOT NULL AUTO_INCREMENT,
                         url                 VARCHAR(2083) NOT NULL,
-                        challenge_id        BINARY(16) NOT NULL,
-                        owner_id            BINARY(16) NOT NULL,
+                        challenge_id        MEDIUMINT NOT NULL,
+                        owner_id            MEDIUMINT NOT NULL,
                         date_created        DATETIME NOT NULL,
                         date_updated        DATETIME NOT NULL,
                         PRIMARY KEY (content_id),
@@ -72,8 +72,8 @@ var (
 			Description: "Add content and vote",
 			Script: `
                     CREATE TABLE IF NOT EXISTS content_voters (
-                        content_id  BINARY(16) NOT NULL,
-                        voter_id    BINARY(16) NOT NULL,
+                        content_id  MEDIUMINT NOT NULL,
+                        voter_id    MEDIUMINT NOT NULL,
                         PRIMARY KEY (content_id, voter_id),
                         INDEX (content_id, voter_id),
                         FOREIGN KEY (content_id) REFERENCES contents(content_id) ON DELETE CASCADE,
@@ -86,8 +86,8 @@ var (
 			Description: "Add challenge and user",
 			Script: `
                     CREATE TABLE IF NOT EXISTS user_challenges_joined (
-                        user_id         BINARY(16) NOT NULL,
-                        challenge_id    BINARY(16) NOT NULL,
+                        user_id         MEDIUMINT NOT NULL,
+                        challenge_id    MEDIUMINT NOT NULL,
                         PRIMARY KEY (user_id, challenge_id),
                         INDEX (user_id, challenge_id),
                         FOREIGN KEY (challenge_id) REFERENCES challenges(challenge_id) ON DELETE CASCADE,
@@ -100,9 +100,9 @@ var (
 			Description: "Add comments",
 			Script: `
                     CREATE TABLE IF NOT EXISTS comments (
-                        comment_id      BINARY(16) NOT NULL,
-                        creator_id      BINARY(16) NOT NULL,
-                        content_id      BINARY(16) NOT NULL,
+                        comment_id      MEDIUMINT NOT NULL AUTO_INCREMENT,
+                        creator_id      MEDIUMINT NOT NULL,
+                        content_id      MEDIUMINT NOT NULL,
                         comment         TEXT NOT NULL,
                         date_created    DATETIME NOT NULL,
                         PRIMARY KEY (comment_id),

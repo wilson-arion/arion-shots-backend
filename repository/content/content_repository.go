@@ -11,15 +11,15 @@ const (
         INSERT INTO content_voters
 	        (content_id, voter_id)
         VALUES
-	        (UUID_TO_BIN(?), UUID_TO_BIN(?));
+	        (?, ?);
     `
 	queryDeleteVote = `
         DELETE FROM
             content_voters
         WHERE
-            content_id = UUID_TO_BIN(?)
+            content_id = ?
         AND
-            voter_id = UUID_TO_BIN(?);
+            voter_id = ?;
     `
 
 	queryCountVote = `
@@ -28,7 +28,7 @@ const (
         FROM
             content_voters
         WHERE
-            content_id = UUID_TO_BIN(?)
+            content_id = ?
         LIMIT 1;
     `
 
@@ -36,15 +36,15 @@ const (
         INSERT INTO contents
             (content_id, url, challenge_id, owner_id, date_created, date_updated)
         VALUES
-            (UUID_TO_BIN(UUID()), ?, UUID_TO_BIN(?), UUID_TO_BIN(?), now(), now());
+            (0, ?, ?, ?, now(), now());
 
     `
 
 	queryGetContentsPerChallenge = `
         SELECT
-            BIN_TO_UUID(c.content_id) as content_id,
+            c.content_id,
             c.url,
-            BIN_TO_UUID(c.challenge_id) as challenge_id,
+            c.challenge_id,
             c.date_created,
             c.date_updated,
             (
@@ -55,7 +55,7 @@ const (
                 WHERE
                     cv.content_id = c.content_id
             ) as votes,
-            BIN_TO_UUID(c.owner_id) as owner_id,
+            c.owner_id,
             u.first_name,
             u.last_name,
             u.email,
@@ -68,7 +68,7 @@ const (
             users u
         ON
             c.owner_id = u.user_id;
-        WHERE c.challenge_id = UUID_TO_BIN(?);
+        WHERE c.challenge_id = ?;
     `
 )
 
