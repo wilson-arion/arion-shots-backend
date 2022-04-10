@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"strings"
 
-	"arion_shot_api/internal/datasources/my_sql/arion_shots_db"
+	"arion_shot_api/datasources/my_sql/arion_shots_db"
 	"github.com/go-sql-driver/mysql"
 	"github.com/pkg/errors"
 )

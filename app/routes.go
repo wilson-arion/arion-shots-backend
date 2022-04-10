@@ -1,16 +1,16 @@
 package app
 
 import (
-	"arion_shot_api/internal/controllers/challenge"
-	"arion_shot_api/internal/controllers/content"
-	"arion_shot_api/internal/controllers/health"
-	"arion_shot_api/internal/controllers/user"
-	"arion_shot_api/internal/platform/middleware"
+	"arion_shot_api/controllers/challenge"
+	"arion_shot_api/controllers/content"
+	"arion_shot_api/controllers/health"
+	"arion_shot_api/controllers/user"
+	"arion_shot_api/platform/middleware"
 	"log"
 	"net/http"
 	"os"
 
-	"arion_shot_api/internal/platform/auth"
+	"arion_shot_api/platform/auth"
 	"github.com/wgarcia4190/web-router-go/web"
 )
 

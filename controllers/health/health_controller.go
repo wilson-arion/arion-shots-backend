@@ -1,7 +1,7 @@
 package health
 
 import (
-	"arion_shot_api/internal/services/health"
+	"arion_shot_api/services/health"
 	"context"
 	"github.com/wgarcia4190/web-router-go/web"
 

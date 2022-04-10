@@ -1,9 +1,9 @@
 package user
 
 import (
-	"arion_shot_api/internal/domain/user"
-	"arion_shot_api/internal/platform/auth"
-	sqlutils "arion_shot_api/internal/utils/sql"
+	"arion_shot_api/domain/user"
+	"arion_shot_api/platform/auth"
+	sqlutils "arion_shot_api/utils/sql"
 	"github.com/pkg/errors"
 	"time"
 )

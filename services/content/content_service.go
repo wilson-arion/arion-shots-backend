@@ -1,8 +1,8 @@
 package content
 
 import (
-	"arion_shot_api/internal/domain/content"
-	repository "arion_shot_api/internal/repository/content"
+	"arion_shot_api/domain/content"
+	repository "arion_shot_api/repository/content"
 	"github.com/pkg/errors"
 )
 

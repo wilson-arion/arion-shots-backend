@@ -5,9 +5,9 @@ import (
 	"github.com/go-chi/chi"
 	"net/http"
 
-	domain "arion_shot_api/internal/domain/user"
-	"arion_shot_api/internal/platform/auth"
-	service "arion_shot_api/internal/services/user"
+	domain "arion_shot_api/domain/user"
+	"arion_shot_api/platform/auth"
+	service "arion_shot_api/services/user"
 	"github.com/pkg/errors"
 	"github.com/wgarcia4190/web-router-go/web"
 	"go.opencensus.io/trace"

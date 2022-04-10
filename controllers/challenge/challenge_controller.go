@@ -4,9 +4,9 @@ import (
 	"context"
 	"net/http"
 
-	"arion_shot_api/internal/domain/challenge"
-	"arion_shot_api/internal/platform/auth"
-	service "arion_shot_api/internal/services/challenge"
+	"arion_shot_api/domain/challenge"
+	"arion_shot_api/platform/auth"
+	service "arion_shot_api/services/challenge"
 	"github.com/go-chi/chi"
 	"github.com/wgarcia4190/web-router-go/web"
 )

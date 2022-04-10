@@ -1,7 +1,7 @@
 package user
 
 import (
-	"arion_shot_api/internal/utils/crypto"
+	"arion_shot_api/utils/crypto"
 	"github.com/pkg/errors"
 	"regexp"
 	"strings"

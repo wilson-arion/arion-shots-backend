@@ -1,8 +1,8 @@
 package content
 
 import (
-	"arion_shot_api/internal/domain/content"
-	sqlutils "arion_shot_api/internal/utils/sql"
+	"arion_shot_api/domain/content"
+	sqlutils "arion_shot_api/utils/sql"
 	"github.com/pkg/errors"
 )
 

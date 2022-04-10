@@ -1,9 +1,9 @@
 package challenge
 
 import (
-	"arion_shot_api/internal/domain/challenge"
-	"arion_shot_api/internal/domain/user"
-	sqlutils "arion_shot_api/internal/utils/sql"
+	"arion_shot_api/domain/challenge"
+	"arion_shot_api/domain/user"
+	sqlutils "arion_shot_api/utils/sql"
 	"github.com/pkg/errors"
 )
 

@@ -1,7 +1,7 @@
 package health
 
 import (
-	"arion_shot_api/internal/repository/health"
+	"arion_shot_api/repository/health"
 )
 
 var (

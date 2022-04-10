@@ -1,7 +1,7 @@
 package health
 
 import (
-	sqlutils "arion_shot_api/internal/utils/sql"
+	sqlutils "arion_shot_api/utils/sql"
 )
 
 const (

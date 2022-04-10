@@ -3,9 +3,9 @@ package user
 import (
 	"time"
 
-	"arion_shot_api/internal/domain/user"
-	"arion_shot_api/internal/platform/auth"
-	repository "arion_shot_api/internal/repository/user"
+	"arion_shot_api/domain/user"
+	"arion_shot_api/platform/auth"
+	repository "arion_shot_api/repository/user"
 	"github.com/pkg/errors"
 )
 

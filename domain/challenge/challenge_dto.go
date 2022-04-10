@@ -1,6 +1,6 @@
 package challenge
 
-import "arion_shot_api/internal/domain/user"
+import "arion_shot_api/domain/user"
 
 type Challenge struct {
 	ID               string     `json:"challenge_id"`
