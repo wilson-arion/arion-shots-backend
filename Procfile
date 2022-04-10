@@ -1,1 +1,1 @@
-web: arion-shots-backend
+web: bin/arion-shots-backend
