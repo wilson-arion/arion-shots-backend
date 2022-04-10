@@ -83,7 +83,7 @@ func run() error {
 	signal.Notify(shutdown, os.Interrupt, syscall.SIGTERM)
 
 	api := http.Server{
-		Addr:         "arion-shots.herokuapp.com:" + port,
+		Addr:         "0.0.0.0:8080",
 		Handler:      app.API(shutdown, logger, authenticator),
 		ReadTimeout:  cfg.Web.ReadTimeout,
 		WriteTimeout: cfg.Web.WriteTimeout,
