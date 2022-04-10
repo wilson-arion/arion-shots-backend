@@ -29,9 +29,14 @@ func main() {
 func run() error {
 	logger := log.New(os.Stdout, "ArionShots : ", log.LstdFlags)
 
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8001" // Default port if not specified
+	}
+
 	var cfg struct {
 		Web struct {
-			Address         string        `conf:"default:localhost:8001"`
+			Address         string        `conf:"default:localhost"`
 			Debug           string        `conf:"default:localhost:6060"`
 			ReadTimeout     time.Duration `conf:"default:5s"`
 			WriteTimeout    time.Duration `conf:"default:5s"`
@@ -78,7 +83,7 @@ func run() error {
 	signal.Notify(shutdown, os.Interrupt, syscall.SIGTERM)
 
 	api := http.Server{
-		Addr:         cfg.Web.Address,
+		Addr:         "localhost:" + port,
 		Handler:      app.API(shutdown, logger, authenticator),
 		ReadTimeout:  cfg.Web.ReadTimeout,
 		WriteTimeout: cfg.Web.WriteTimeout,
