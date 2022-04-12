@@ -16,7 +16,7 @@ var (
 						first_name      VARCHAR(45) NULL,
 						last_name       VARCHAR(45) NULL,
 						email           VARCHAR(45) NOT NULL,
-						pass            VARCHAR(255) NOT NULL,
+						pass            TEXT NOT NULL,
                         user_role       VARCHAR(1) NOT NULL,
 						date_created    DATETIME NOT NULL,
 						date_updated    DATETIME NOT NULL,
